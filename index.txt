@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Pembelajaran IPAS Kelas 5 - Harmoni dalam Ekosistem</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+    body { font-family: 'Fredoka', sans-serif; background: linear-gradient(135deg, #e0f2fe 0%, #fef3c7 100%); min-height: 100vh; }
+    .page-book { display: none; }
+    .page-book.active { display: block; }
+  </style>
+</head>
+<body class="p-3 md:p-6 flex items-center justify-center">
+
+  <div class="bg-white border-4 border-emerald-400 rounded-3xl shadow-2xl p-4 md:p-8 max-w-4xl w-full">
+    
+    <!-- REGISTRASI SISWA -->
+    <div id="screen-login" class="space-y-6 text-center py-8">
+      <div class="text-6xl text-emerald-500 animate-bounce"><i class="fa-solid fa-leaf"></i></div>
+      <h1 class="text-3xl md:text-4xl font-bold text-emerald-800">IPAS Kelas 5 SD - Bab 2</h1>
+      <p class="text-xl text-gray-600 font-semibold">Harmoni dalam Ekosistem</p>
+      
+      <div class="max-w-md mx-auto space-y-4 pt-4">
+        <input type="text" id="student-name-input" placeholder="Masukkan Nama Lengkap Siswa..." class="w-full p-4 border-2 border-emerald-300 rounded-2xl text-lg text-center font-bold focus:outline-none focus:border-emerald-500 shadow-inner">
+        <button onclick="checkAccess()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-2xl font-bold py-4 rounded-2xl shadow-lg border-b-4 border-emerald-700 transition">
+          Mulai Belajar <i class="fa-solid fa-book-open ml-2"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODUL BUKU DIGITAL MATERI -->
+    <div id="screen-book" class="hidden space-y-6">
+      <div class="flex justify-between items-center border-b-2 border-emerald-200 pb-3">
+        <span class="text-lg font-bold text-emerald-800" id="page-indicator">Halaman 1 dari 4</span>
+        <span class="text-sm font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full" id="user-display-name">Siswa</span>
+      </div>
+
+      <!-- Halaman 1 -->
+      <div id="page-1" class="page-book active space-y-4">
+        <h2 class="text-2xl font-bold text-emerald-700 border-b-2 border-emerald-300 pb-1">Topik A: Memakan dan Dimakan</h2>
+        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-2 text-gray-800 text-sm md:text-base">
+          <p><strong>1. Rantai Makanan:</strong> Hubungan makan dan dimakan dalam suatu ekosistem untuk memperoleh energi. Tumbuhan dapat membuat makanannya sendiri melalui fotosintesis (<strong>Produsen</strong>). Hewan dan manusia tidak dapat membuat makanan sendiri (<strong>Konsumen</strong>).</p>
+          <div class="bg-white p-3 rounded-xl font-bold text-center text-emerald-900 border border-emerald-300">
+            Rumput (Produsen) ➔ Belalang (Konsumen I) ➔ Katak (Konsumen II) ➔ Ular (Konsumen III) ➔ Elang (Konsumen Puncak)
+          </div>
+          <p><strong>2. Peran Makhluk Hidup:</strong></p>
+          <ul class="list-disc ml-6">
+            <li><strong>Produsen:</strong> Rumput, Pohon Mangga, Padi, Jagung.</li>
+            <li><strong>Konsumen:</strong> Herbivora (Sapi, Kelinci), Karnivora (Harimau, Elang), Omnivora (Ayam, Manusia).</li>
+            <li><strong>Pengurai (Dekomposer):</strong> Jamur, Bakteri, Cacing Tanah.</li>
+          </ul>
+          <p><strong>3. Jaring-Jaring Makanan:</strong> Kumpulan beberapa rantai makanan yang saling berhubungan dalam suatu ekosistem.</p>
+        </div>
+      </div>
+
+      <!-- Halaman 2 -->
+      <div id="page-2" class="page-book space-y-4">
+        <h2 class="text-2xl font-bold text-sky-700 border-b-2 border-sky-300 pb-1">Topik B: Transfer Energi Antarmakhluk Hidup</h2>
+        <div class="bg-sky-50 p-4 rounded-2xl border border-sky-200 space-y-2 text-gray-800 text-sm md:text-base">
+          <p><strong>1. Sumber Energi Utama:</strong> Sumber energi utama bagi hampir semua makhluk hidup adalah <strong>Matahari</strong>. Perpindahan energi dari satu makhluk hidup ke makhluk hidup lain disebut <em>transfer energi</em>.</p>
+          <p><strong>2. Energi Semakin Berkurang:</strong> Tidak semua energi dipindahkan ke makhluk hidup berikutnya. Sebagian energi digunakan untuk <em>bergerak, bernapas, tumbuh, dan berkembang biak</em>. Akibatnya, jumlah hewan pemangsa selalu lebih sedikit dibandingkan jumlah tumbuhan.</p>
+          <p><strong>3. Piramida Makanan:</strong> Menunjukkan jumlah makhluk hidup dan energi pada setiap tingkat makanan. Tingkat teratas (Konsumen Puncak) memiliki jumlah dan energi paling sedikit.</p>
+        </div>
+      </div>
+
+      <!-- Halaman 3 -->
+      <div id="page-3" class="page-book space-y-4">
+        <h2 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-300 pb-1">Topik C: Ekosistem yang Harmonis</h2>
+        <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-2 text-gray-800 text-sm md:text-base">
+          <p><strong>1. Keseimbangan Ekosistem:</strong> Terjadi jika seluruh komponen menjalankan perannya dengan baik. Tumbuhan tumbuh subur, hewan memiliki makanan cukup, dan lingkungan tetap bersih.</p>
+          <p><strong>2. Penyebab Ketidakseimbangan:</strong></p>
+          <ul class="list-disc ml-6">
+            <li><strong>Faktor Alam:</strong> Letusan gunung berapi, banjir, kebakaran hutan, badai.</li>
+            <li><strong>Faktor Manusia:</strong> Penebangan hutan liar, membuang sampah sembarangan, pencemaran, perburuan hewan.</li>
+          </ul>
+          <p><strong>3. Contoh Dampak:</strong> Jika ular diburu terus-menerus, jumlah tikus meningkat ➔ tanaman padi habis dimakan tikus ➔ hasil panen petani menurun.</p>
+        </div>
+      </div>
+
+      <!-- Halaman 4 -->
+      <div id="page-4" class="page-book space-y-4">
+        <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-300 pb-1">Proyek Pembelajaran: Sampah Organik & Kompos</h2>
+        <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-200 space-y-2 text-gray-800 text-sm md:text-base">
+          <p><strong>1. Sampah Organik:</strong> Sampah dari makhluk hidup yang mudah terurai (Daun kering, sisa sayuran, kulit buah).</p>
+          <p><strong>2. Pupuk Kompos:</strong> Pupuk alami dari hasil penguraian sampah organik oleh makhluk pengurai (bakteri, jamur, cacing tanah).</p>
+          <p><strong>3. Manfaat Kompos:</strong> Menyuburkan tanah, mengurangi penggunaan pupuk kimia, dan mengurangi jumlah sampah.</p>
+          <div class="p-3 bg-emerald-100 rounded-xl text-center font-bold text-emerald-900 border border-emerald-300">
+            Sudah Paham Semuanya? Yuk Lanjut ke Latihan Soal!
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigasi Buku -->
+      <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+        <button id="btn-prev" onclick="changePage(-1)" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold px-6 py-3 rounded-xl disabled:opacity-50">
+          <i class="fa-solid fa-arrow-left mr-2"></i> Sebelumnya
+        </button>
+        <button id="btn-next" onclick="changePage(1)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">
+          Selanjutnya <i class="fa-solid fa-arrow-right ml-2"></i>
+        </button>
+        <button id="btn-quiz" onclick="startQuiz()" class="hidden bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg border-b-4 border-amber-700">
+          Mulai Kuis Latihan <i class="fa-solid fa-pen-to-square ml-2"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODUL LEMBAR KUIS -->
+    <div id="screen-quiz" class="hidden space-y-6">
+      <h2 class="text-2xl font-bold text-emerald-800 border-b-2 border-emerald-300 pb-2">Latihan Soal Bab 2 IPAS</h2>
+      
+      <form id="quiz-form" class="space-y-6 max-h-[60vh] overflow-y-auto p-2">
+        <!-- SOAL PILIHAN GANDA (10 Soal @ 5 Poin) -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-sky-800 bg-sky-100 p-2 rounded-lg">Bagian A: Pilihan Ganda (10 Soal - Maks. 50 Poin)</h3>
+          
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">1. Apa yang dimaksud dengan produsen?</p>
+            <label class="block"><input type="radio" name="pg1" value="A"> A. Makhluk hidup yang memakan tumbuhan</label>
+            <label class="block"><input type="radio" name="pg1" value="B"> B. Makhluk hidup yang dapat membuat makanannya sendiri</label>
+            <label class="block"><input type="radio" name="pg1" value="C"> C. Makhluk hidup yang menguraikan bangkai</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">2. Perpindahan energi dari satu makhluk hidup ke makhluk hidup lain disebut...</p>
+            <label class="block"><input type="radio" name="pg2" value="A"> A. Rantai makanan</label>
+            <label class="block"><input type="radio" name="pg2" value="B"> B. Transfer energi</label>
+            <label class="block"><input type="radio" name="pg2" value="C"> C. Piramida makanan</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">3. Hewan pemakan tumbuhan seperti sapi dan kelinci tergolong...</p>
+            <label class="block"><input type="radio" name="pg3" value="A"> A. Karnivora</label>
+            <label class="block"><input type="radio" name="pg3" value="B"> B. Herbivora</label>
+            <label class="block"><input type="radio" name="pg3" value="C"> C. Omnivora</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">4. Tingkat makanan yang jumlahnya paling sedikit pada piramida makanan adalah...</p>
+            <label class="block"><input type="radio" name="pg4" value="A"> A. Produsen</label>
+            <label class="block"><input type="radio" name="pg4" value="B"> B. Konsumen I</label>
+            <label class="block"><input type="radio" name="pg4" value="C"> C. Konsumen puncak</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">5. Contoh faktor manusia yang menyebabkan ketidakseimbangan ekosistem adalah...</p>
+            <label class="block"><input type="radio" name="pg5" value="A"> A. Letusan gunung berapi</label>
+            <label class="block"><input type="radio" name="pg5" value="B"> B. Membuang sampah sembarangan</label>
+            <label class="block"><input type="radio" name="pg5" value="C"> C. Banjir</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">6. Sumber energi utama bagi hampir semua makhluk hidup di bumi adalah...</p>
+            <label class="block"><input type="radio" name="pg6" value="A"> A. Matahari</label>
+            <label class="block"><input type="radio" name="pg6" value="B"> B. Air</label>
+            <label class="block"><input type="radio" name="pg6" value="C"> C. Tanah</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">7. Organisme yang berperan menguraikan sampah organik menjadi zat hara adalah...</p>
+            <label class="block"><input type="radio" name="pg7" value="A"> A. Produsen</label>
+            <label class="block"><input type="radio" name="pg7" value="B"> B. Pengurai (Dekomposer)</label>
+            <label class="block"><input type="radio" name="pg7" value="C"> C. Predator</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">8. Kumpulan beberapa rantai makanan yang saling berhubungan membentuk...</p>
+            <label class="block"><input type="radio" name="pg8" value="A"> A. Jaring-jaring makanan</label>
+            <label class="block"><input type="radio" name="pg8" value="B"> B. Daur hidup</label>
+            <label class="block"><input type="radio" name="pg8" value="C"> C. Piramida makanan</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">9. Contoh pengurai menurut teks materi adalah...</p>
+            <label class="block"><input type="radio" name="pg9" value="A"> A. Rumput dan padi</label>
+            <label class="block"><input type="radio" name="pg9" value="B"> B. Bakteri, jamur, dan cacing tanah</label>
+            <label class="block"><input type="radio" name="pg9" value="C"> C. Elang dan harimau</label>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
+            <p class="font-bold text-gray-800">10. Mengapa energi yang tersedia semakin sedikit pada tingkat makanan berikutnya?</p>
+            <label class="block"><input type="radio" name="pg10" value="A"> A. Energi digunakan untuk bernapas, bergerak, dan tumbuh</label>
+            <label class="block"><input type="radio" name="pg10" value="B"> B. Energi tertiup angin</label>
+            <label class="block"><input type="radio" name="pg10" value="C"> C. Produsen tidak mau membuat makanan</label>
+          </div>
+        </div>
+
+        <!-- SOAL URAIAN (5 Soal @ Maks. 10 Poin) -->
+        <div class="space-y-4 pt-4 border-t-2 border-gray-200">
+          <h3 class="text-lg font-bold text-amber-800 bg-amber-100 p-2 rounded-lg">Bagian B: Uraian Singkat (5 Soal - Maks. 50 Poin)</h3>
+
+          <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+            <p class="font-bold text-gray-800">1. Apa yang dimaksud dengan rantai makanan?</p>
+            <input type="text" id="ur1" class="w-full p-2 border border-gray-300 rounded-lg text-sm" placeholder="Ketik jawabanmu di sini...">
+          </div>
+
+          <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+            <p class="font-bold text-gray-800">2. Sebutkan 2 contoh produsen dalam ekosistem!</p>
+            <input type="text" id="ur2" class="w-full p-2 border border-gray-300 rounded-lg text-sm" placeholder="Ketik jawabanmu di sini...">
+          </div>
+
+          <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+            <p class="font-bold text-gray-800">3. Mengapa jumlah elang lebih sedikit dibandingkan jumlah rumput pada piramida makanan?</p>
+            <input type="text" id="ur3" class="w-full p-2 border border-gray-300 rounded-lg text-sm" placeholder="Ketik jawabanmu di sini...">
+          </div>
+
+          <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+            <p class="font-bold text-gray-800">4. Apa dampak yang terjadi pada tanaman padi jika ular diburu terus-menerus?</p>
+            <input type="text" id="ur4" class="w-full p-2 border border-gray-300 rounded-lg text-sm" placeholder="Ketik jawabanmu di sini...">
+          </div>
+
+          <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+            <p class="font-bold text-gray-800">5. Sebutkan 2 cara manusia dalam menjaga kelestarian alam!</p>
+            <input type="text" id="ur5" class="w-full p-2 border border-gray-300 rounded-lg text-sm" placeholder="Ketik jawabanmu di sini...">
+          </div>
+        </div>
+      </form>
+
+      <button onclick="submitQuiz()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xl font-bold py-4 rounded-2xl shadow-lg border-b-4 border-emerald-800">
+        Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
+      </button>
+    </div>
+
+    <!-- MODAL SERTIFIKAT HASIL BELAJAR -->
+    <div id="screen-result" class="hidden text-center py-6 space-y-6">
+      <div class="text-6xl text-amber-400 animate-bounce"><i class="fa-solid fa-trophy"></i></div>
+      <h2 class="text-3xl font-bold text-emerald-800">Kuis Selesai!</h2>
+      
+      <div class="bg-amber-100 border-2 border-amber-300 p-6 rounded-3xl max-w-sm mx-auto shadow-inner">
+        <p class="text-lg font-bold text-amber-900">SKOR AKHIR KAMU:</p>
+        <p id="final-score" class="text-7xl font-extrabold text-indigo-900 my-2">0</p>
+        <p class="text-xs text-amber-800 font-semibold">*Diukur berdasarkan ketepatan kuis pilihan ganda & uraian</p>
+      </div>
+
+      <div id="certificate-content" class="p-6 bg-amber-50 border-4 border-amber-300 rounded-2xl max-w-xl mx-auto text-center space-y-4">
+        <h3 class="text-2xl font-bold text-indigo-900 uppercase">Sertifikat Hasil Belajar IPAS</h3>
+        <p class="text-sm text-gray-600">Diberikan Kepada Siswa:</p>
+        <h4 id="cert-name" class="text-2xl font-bold text-emerald-700 border-b-2 border-emerald-500 inline-block px-4">Nama Siswa</h4>
+        <p class="text-sm text-gray-700">Telah Menyelesaikan Latihan Bab 2 IPAS "Harmoni dalam Ekosistem"</p>
+        <div class="bg-emerald-600 text-white font-bold text-xl py-2 px-6 rounded-xl inline-block">
+          Skor: <span id="cert-score">0</span> / 100
+        </div>
+        
+        <div class="pt-6 flex justify-end">
+          <div class="text-center w-48 border-t border-gray-400 pt-1">
+            <p class="text-xs text-gray-500">Guru Kelas,</p>
+            <div class="h-10 italic font-bold text-indigo-900 flex items-center justify-center">Dita Wulansari, S.Pd</div>
+            <p class="text-xs font-bold text-gray-800">Dita Wulansari, S.Pd</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-4">
+        <button onclick="downloadPDF()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl shadow flex items-center gap-2">
+          <i class="fa-solid fa-file-arrow-down"></i> Unduh Sertifikat PDF
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentStudent = "";
+    let currentPage = 1;
+    const totalPages = 4;
+
+    const keyPG = { pg1: "B", pg2: "B", pg3: "B", pg4: "C", pg5: "B", pg6: "A", pg7: "B", pg8: "A", pg9: "B", pg10: "A" };
+
+    function checkAccess() {
+      const input = document.getElementById('student-name-input').value.trim();
+      if (!input) return alert("Silakan masukkan nama lengkap terlebih dahulu!");
+
+      const history = JSON.parse(localStorage.getItem('completed_students') || '[]');
+      if (history.includes(input.toLowerCase())) {
+        return alert("Maaf, nama ini sudah pernah menyelesaikan latihan soal. Akses hanya diperbolehkan 1 kali!");
+      }
+
+      currentStudent = input;
+      document.getElementById('user-display-name').innerText = currentStudent;
+      document.getElementById('screen-login').classList.add('hidden');
+      document.getElementById('screen-book').classList.remove('hidden');
+      updatePage();
+    }
+
+    function updatePage() {
+      for (let i = 1; i <= totalPages; i++) {
+        document.getElementById(`page-${i}`).classList.toggle('active', i === currentPage);
+      }
+      document.getElementById('page-indicator').innerText = `Halaman ${currentPage} dari ${totalPages}`;
+      document.getElementById('btn-prev').disabled = currentPage === 1;
+      
+      if (currentPage === totalPages) {
+        document.getElementById('btn-next').classList.add('hidden');
+        document.getElementById('btn-quiz').classList.remove('hidden');
+      } else {
+        document.getElementById('btn-next').classList.remove('hidden');
+        document.getElementById('btn-quiz').classList.add('hidden');
+      }
+    }
+
+    function changePage(delta) {
+      currentPage += delta;
+      updatePage();
+    }
+
+    function startQuiz() {
+      document.getElementById('screen-book').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.remove('hidden');
+    }
+
+    function submitQuiz() {
+      // 1. Hitung Nilai Pilihan Ganda (10 Soal x 5 Poin = Maks 50 Poin)
+      let scorePG = 0;
+      for (let i = 1; i <= 10; i++) {
+        const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+        if (selected && selected.value === keyPG[`pg${i}`]) {
+          scorePG += 5;
+        }
+      }
+
+      // 2. Rubrik Bertingkat Uraian (10 Poin / 5 Poin / 0 Poin)
+      const rubrikUraian = [
+        // Soal 1
+        {
+          groupA: ["makan", "dimakan", "pangan"],
+          groupB: ["energi", "ekosistem", "makhluk hidup"]
+        },
+        // Soal 2
+        {
+          groupA: ["rumput", "padi"],
+          groupB: ["mangga", "jagung", "pohon", "tumbuhan"]
+        },
+        // Soal 3
+        {
+          groupA: ["energi"],
+          groupB: ["berkurang", "puncak", "sedikit", "turun"]
+        },
+        // Soal 4
+        {
+          groupA: ["tikus", "banyak", "meningkat"],
+          groupB: ["padi", "habis", "rusak", "panen"]
+        },
+        // Soal 5
+        {
+          groupA: ["pohon", "tanam", "hutan"],
+          groupB: ["sampah", "daur ulang", "hemat", "jaga"]
+        }
+      ];
+
+      let scoreUraian = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        const val = document.getElementById(`ur${i}`).value.toLowerCase().trim();
+        const rule = rubrikUraian[i - 1];
+
+        const hasGroupA = rule.groupA.some(keyword => val.includes(keyword));
+        const hasGroupB = rule.groupB.some(keyword => val.includes(keyword));
+
+        if (hasGroupA && hasGroupB) {
+          scoreUraian += 10; // Poin Sempurna (Kata kunci + Kemiripan makna utuh)
+        } else if (hasGroupA || hasGroupB) {
+          scoreUraian += 5;  // Poin Setengah (Hanya memuat salah satu konsep)
+        }
+      }
+
+      const totalScore = scorePG + scoreUraian;
+
+      // Simpan nama agar tidak bisa re-entry dengan nama yang sama
+      const history = JSON.parse(localStorage.getItem('completed_students') || '[]');
+      history.push(currentStudent.toLowerCase());
+      localStorage.setItem('completed_students', JSON.stringify(history));
+
+      // Tampilkan Hasil & Sertifikat
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-result').classList.remove('hidden');
+      document.getElementById('final-score').innerText = totalScore;
+      document.getElementById('cert-score').innerText = totalScore;
+      document.getElementById('cert-name').innerText = currentStudent;
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById('certificate-content');
+      const opt = {
+        margin: 0.5,
+        filename: `Sertifikat_IPAS_${currentStudent}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>
